@@ -47,12 +47,6 @@ def find_marker_1(image_1):
     d = max(conts, key=cv2.contourArea)
     # compute the bounding box of the of the paper region and return it
     return cv2.minAreaRect(d)
-def myclick():
-    myLabel = Label(root, text="U can Overtake now")
-    myLabel.pack()
-def myclick_1():
-    myLabel_1 = Label(root, text="Don't Overtake now")
-    myLabel_1.pack()
 
 def find_marker_2(image_2):
     # convert the image to grayscale, blur it, and detect edges
@@ -72,15 +66,9 @@ def find_marker_2(image_2):
 def distance_to_camera(knownWidth, focalLength, perWidth):
     # compute and return the distance from the maker to the camera
     return (knownWidth * focalLength) / perWidth
-#def distance_to_camera_1(RealHeight, focalLength, imageHeight,objectHeight, sensorHeight):
-    #return ((RealHeight * focalLength * imageHeight) /(objectHeight*sensorHeight))
 
 KNOWN_DISTANCE = [12,6]
 KNOWN_WIDTH = [8.5,0.5]
-#real_Height = 11.6929
-#image_Height = 720
-#object_Height = 1122.519685
-#sensor_Height = 0.1968
 time_diff = 1
 low_white = np.array([0,0,0])
 high_white = np.array([0,0,255])
@@ -109,27 +97,15 @@ while True:
     cnts = imutils.grab_contours(cnts)
     cnts_1 = cv2.findContours(mask_1, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     cnts_1 = imutils.grab_contours(cnts_1)
-    #print(frame.shape)
-    #print(marker)
-    inches = distance_to_camera(KNOWN_WIDTH[0], focalLength, marker[1][0])
-    #inches = distance_to_camera(KNOWN_WIDTH[0], focalLength_1, marker_1[1][0])
-    #print(inches)
+    inches = distance_to_camera(KNOWN_WIDTH[0], focalLength, marker[1][0])    
     inches_1 = distance_to_camera(KNOWN_WIDTH[1], focalLength_1, marker_1[1][0])
-    #inches_2 = distance_to_camera(KNOWN_WIDTH[2], focalLength_2, marker_2[1][0])
     box = cv2.cv.BoxPoints(marker) if imutils.is_cv2() else cv2.boxPoints(marker)
     box = np.int0(box)
     box_1 = cv2.cv.BoxPoints(marker_1) if imutils.is_cv2() else cv2.boxPoints(marker_1)
     box_1 = np.int0(box_1)
-    #box_2 = cv2.cv.BoxPoints(marker_2) if imutils.is_cv2() else cv2.boxPoints(marker_2)
-    #box_2 = np.int0(box_2)
+    
     range = cv2.contourArea(box)
     range_1 = cv2.contourArea(box_1)
-    #range_2 = cv2.contourArea(box_2)
-    #cv2.drawContours(frame, [box_1], -1, (255, 0, 0), 2)
-    #cv2.drawContours(frame, [box_2], -1, (0, 0, 255), 2)
-    #F = round((inches / 12), 2)
-    #print(range_2)
-    #print(range_1)
     if(17500<range<100900):
 
         cv2.drawContours(frame, [box], -1, (0, 255, 0), 2)
@@ -156,7 +132,7 @@ while True:
             if (area > 5):
                 pass
                 #print("white")
-                #list_4.append("white")
+                list_4.append("white")
         if (F>=40):
             print("Condition satisfied for Distance")
             print("Now Checking for Velocity")
