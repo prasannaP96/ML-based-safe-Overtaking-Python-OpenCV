@@ -230,25 +230,18 @@ while True:
                     cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
         count = 1
     cv2.imshow("image",frame)
-    root = tk.Tk()
-    root.title("Ericsson")
     smtpUser = 'prasannakumarp96@gmail.com'
-    smtpPass = '9994036324'
+    smtpPass = '************'
     toAdd = 'prasannakumar.p2019@vitstudent.ac.in'
     fromAdd = smtpUser
     subject = 'Ericsson Test'
     header = 'To:' + toAdd + '\n' + 'From:' + fromAdd + '\n' + 'Subject:' + subject
     if ((20000<range<100900)and(F>=40)and (G>=17)and(J>0)):
-        btn1 = tk.Button(root, text = "Button",command=myclick())
         body = 'Overtake now'
     elif ((1600<range_1<5500)and(F_1>=40)and(G_1>=17)and(J_1>0)):
-        btn1= tk.Button(root, text = "Button",command=myclick())
         body = 'Overtake now'
     else:
-        btn1 = tk.Button(root, text="Button", command=myclick_1())
         body = 'Dont Overtake'
-    btn1.pack()
-    root.mainloop()
     s = smtplib.SMTP('smtp.gmail.com', 587)
     s.ehlo()
     s.starttls()
