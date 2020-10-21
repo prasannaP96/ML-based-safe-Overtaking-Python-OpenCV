@@ -1,5 +1,5 @@
-# Prasanna-Kumar-
-ML based Safe Overtaking 
+# Prasanna-Kumar- 
+ML based Safe Overtaking using python OpenCV 
 
 1.Object Detection 
 
