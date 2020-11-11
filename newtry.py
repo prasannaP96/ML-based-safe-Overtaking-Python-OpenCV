@@ -79,7 +79,7 @@ count = 1
 #client, addr = server.accept()
 #print("connected")
 account_sid = 'AC19f9340f70eb57a4d02ff9b27fc3bc4d'
-auth_token = 'bcec039e7b8eabe7a9bf8392e44cc0a1'
+auth_token = '***************'
 client = Client(account_sid, auth_token)
 driver = webdriver.Chrome("C:\webdrivers\chromedriver")
 driver.get('http://web.whatsapp.com')
