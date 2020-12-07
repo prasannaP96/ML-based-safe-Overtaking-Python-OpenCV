@@ -59,21 +59,6 @@ def lap():
     s.send(bytes("Data processing... pls wait",'utf-8'))
     s.close()
     
-def mob():
-    host = "192.168.1.7"
-    port = 12347
-    s= socket.socket()
-    s.connect((host,port))
-    s.send(bytes("u can overtake",'utf-8'))
-    s.close()
-
-def mob_1():
-    host = "192.168.1.7"
-    port = 12347
-    s= socket.socket()
-    s.connect((host,port))
-    s.send(bytes("Don't overtake",'utf-8'))
-    s.close()
 
 KNOWN_DISTANCE = [12,6]
 KNOWN_WIDTH = [8.5,0.5]
