@@ -8,3 +8,5 @@ ML based Safe Overtaking using python OpenCV
 3.Decision Making and sending mail to respective person.
 
 4.All data will be stored automatically in Excel file using pandas library.
+
+5.Using Socket we will send message from one device to another.
