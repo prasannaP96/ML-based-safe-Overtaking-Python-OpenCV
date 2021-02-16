@@ -7,6 +7,6 @@ ML based Safe Overtaking using python OpenCV
 
 3.Decision Making and sending mail to respective person.
 
-4.All data will be stored automatically in Excel file using pandas library.
+4.Using Socket we will send message from one person to another.
 
-5.Using Socket we will send message from one person to another.
+5.Using Tkinter i have created a user Interface for the host vehicle.
