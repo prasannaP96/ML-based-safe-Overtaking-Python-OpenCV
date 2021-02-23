@@ -17,8 +17,7 @@ fonts = cv2.FONT_HERSHEY_COMPLEX
 cap = cv2.VideoCapture("E:\car detection\proj.mp4")
 car_detector = cv2.CascadeClassifier("E:\car detection\cars.xml")
 time_diff = 1
-now = datetime.now()
-current_time=now.strftime("%H:%M:%S")
+
 
 
 def FocalLength(measured_distance, real_width, width_in_rf_image):
@@ -71,6 +70,8 @@ s.connect((host, port))
 while True:
     t = time.time()
     _, frame = cap.read()
+    now = datetime.datetime.now()
+    current_time=now.strftime("%H:%M:%S")
     car_width_in_frame = car_data(frame)
     hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     if car_width_in_frame != 0:
@@ -96,8 +97,7 @@ while True:
                     elif (J>=2):
                         print('You can Overtake',current_time)
                         s.send(bytes("Accelerate to Overtake", 'utf-8'))
-                    elif (2>
-                          J>0):
+                    elif (2>J>0):
                         print("normally overtake",current_time)
                         s.send(bytes("Overtake now", 'utf-8'))
                 else:
