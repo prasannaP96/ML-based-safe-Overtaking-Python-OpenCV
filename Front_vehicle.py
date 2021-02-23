@@ -92,20 +92,20 @@ while True:
                 if (G>=5):
                     #print("Checking for Acceleration")
                     if (J<0):
-                        print("Dont Over take",current_time)
-                        s.send(bytes("Dont Over take", 'utf-8'))
+                        output = ("Dont Over take",current_time)
+                        s.send(bytes(str(output), 'utf-8'))
                     elif (J>=2):
-                        print('You can Overtake',current_time)
-                        s.send(bytes("Accelerate to Overtake", 'utf-8'))
-                    elif (2>J>0):
-                        print("normally overtake",current_time)
-                        s.send(bytes("Overtake now", 'utf-8'))
+                        output = ("U can overtake",current_time)
+                        s.send(bytes(str(output), 'utf-8'))
+                    elif (2>J>0):                          
+                        output = ("Dont Over take",current_time)
+                        s.send(bytes(str(output), 'utf-8'))
                 else:
-                    print("Do Not Overtake",current_time)
-                    s.send(bytes("Do Not Overtake", 'utf-8'))
+                    output = ("Dont Over take",current_time)
+                    s.send(bytes(str(output), 'utf-8'))
             else:
-                print("Dont over take",current_time)
-                s.send(bytes("Dont over take", 'utf-8'))
+                output = ("Dont Over take",current_time)
+                s.send(bytes(str(output), 'utf-8'))
             cv2.putText(frame, f"Distance = {round(F / 100)} metres", (50, 50), fonts, 1, (GREEN), 2)
             cv2.putText(frame, "Vel=%.2fm\sec" % (G/100), (frame.shape[1] - 240, frame.shape[0] - 80),
                     cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
