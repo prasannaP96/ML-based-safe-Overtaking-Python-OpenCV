@@ -1,5 +1,5 @@
 # Prasanna-Kumar- 
-ML based Safe Overtaking using python OpenCV 
+ML based Safe Overtaking using ML Model
 
 1.Building ML Model for Safe overtaking  
 
